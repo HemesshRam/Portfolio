@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Hemessh Ram S R, Graphic Designer and Video Editor based in Coimbatore.">
+    <meta name="keywords" content="graphic design, video editing, portfolio, Hemessh Ram">
+    <meta name="author" content="Hemessh Ram S R">
+    <meta property="og:title" content="Hemessh Ram S R - Portfolio">
+    <meta property="og:description" content="Explore the creative works of Hemessh Ram S R, a Graphic Designer and Video Editor.">
+    <meta property="og:image" content="images/wp-srh.jpg">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <title>Hemessh Ram S R - Portfolio</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        .navbar {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+
+        .nav-link:hover, .nav-link:focus {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('images/wp-srh.jpg') center/cover no-repeat, #111;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            bottom: 50px;
+            font-size: 12px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            opacity: 0.8;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-btn:hover, .scroll-btn:focus {
+            opacity: 1;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-10px); }
+            60% { transform: translateY(-5px); }
+        }
+
+        /* Section Styling */
+        .section {
+            padding: 100px 5%;
+            background: #111;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            color: #fff;
+        }
+
+        .content-rectangle {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #000; /* Changed to solid black */
+            color: #fff; /* White text for contrast */
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+
+        .content-rectangle:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); /* White shadow for hover effect */
+        }
+
+        .content-rectangle ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+
+        .content-rectangle ul li {
+            margin-bottom: 15px;
+            transition: color 0.3s ease;
+        }
+
+        .content-rectangle ul li:hover {
+            color: #ccc; /* Light gray for hover to maintain black-and-white theme */
+        }
+
+        /* Image Slider */
+        .image-slider {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .slide {
+            min-width: 400px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .slide:hover {
+            transform: scale(1.05);
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+
+        .prev { left: 10px; }
+        .next { right: 10px; }
+
+        /* Video Section */
+        .video-section {
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .video-player {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000; /* Changed to solid black */
+            color: #fff; /* White text for contrast */
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease;
+        }
+
+        .video-player:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2); /* White shadow for hover effect */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 50px;
+            }
+            .hero p {
+                font-size: 14px;
+            }
+            .nav-menu {
+                flex-direction: column;
+                gap: 10px;
+            }
+            .slide {
+                min-width: 300px;
+                height: 225px;
+            }
+            .section-title {
+                font-size: 2rem;
+            }
+            .content-rectangle {
+                padding: 20px;
+            }
+            .video-player {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link" aria-label="Go to Home section">Home</a></li>
+            <li><a href="#about" class="nav-link" aria-label="Go to About section">About</a></li>
+            <li><a href="#education" class="nav-link" aria-label="Go to Education section">Education</a></li>
+            <li><a href="#portfolio" class="nav-link" aria-label="Go to Portfolio section">Images</a></li>
+            <li><a href="#skills" class="nav-link" aria-label="Go to Skills section">Skills</a></li>
+            <li><a href="#co-curricular" class="nav-link" aria-label="Go to Co-Curricular section">Co-Curricular</a></li>
+            <li><a href="#extra-curricular" class="nav-link" aria-label="Go to Extra-Curricular section">Extra-Curricular</a></li>
+            <li><a href="#video" class="nav-link" aria-label="Go to Video section">Video</a></li>
+            <li><a href="#contact" class="nav-link" aria-label="Go to Contact section">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <h1>HEMESSSH RAM S R</h1>
+        <p>I'm Hemessh Ram S R, Graphic Designer & Video Editor<br>Based in Coimbatore</p>
+        <button class="scroll-btn" aria-label="Scroll to Portfolio section" onclick="document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' })">SCROLL</button>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="content-rectangle">
+            <p>
+                I am a passionate Graphic Designer and Video Editor, currently in my third year at PSG College of Technology. With expertise in visual design, multimedia editing, and creative storytelling, I craft compelling graphics and videos that leave a lasting impact.
+            </p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li><strong>PSG College of Technology, Coimbatore</strong><br>B.Tech - Information Technology</li>
+                <li><strong>Paavai Vidhyashram, Namakkal</strong></li>
+                <li><strong>The Vijay Millennium School, Dharmapuri</strong></li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Portfolio Section (Image Slider) -->
+    <section id="portfolio" class="section">
+        <h2 class="section-title">Images</h2>
+        <div class="image-slider">
+            <div class="slider-container">
+                <div class="slide" style="background-image: url('images/coolie.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/jailer2another.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/2.0 clean.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/PSX_20241119_194818.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/thug-life.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/thalapathy_bday-plain.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/amaran special poster.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/dragon clean.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/MAHAAN.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/Picsart_24-11-24_20-54-51-487.jpg');" loading="lazy"></div>
+            </div>
+            <button class="slider-btn prev" aria-label="Previous slide" onclick="showSlide(currentSlide - 1)">❮</button>
+            <button class="slider-btn next" aria-label="Next slide" onclick="showSlide(currentSlide + 1)">❯</button>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li><strong>Design Tools:</strong> Photoshop, Illustrator, Canva, After Effects, Premiere Pro, CapCut</li>
+                <li><strong>Languages:</strong> C, C++, Python, Java, JavaScript</li>
+                <li><strong>Web:</strong> HTML, CSS</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Co-Curricular Activities Section -->
+    <section id="co-curricular" class="section">
+        <h2 class="section-title">Co-Curricular Activities</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>1. Workshop on "Design Revolution: Master Modern Graphics with Canva" – Gravity Coding</li>
+                <li>2. Film Direction 101 Workshop – LevelUp Learning</li>
+                <li>3. Artificial Intelligence with Python – Coincent.ai</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Extra-Curricular Activities Section -->
+    <section id="extra-curricular" class="section">
+        <h2 class="section-title">Extra-Curricular Activities</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>Core team Member of Students Union – Design team</li>
+                <li>Core team Member in Editing – Team Dramatix</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section id="video" class="section">
+        <h2 class="section-title">Video Showcase</h2>
+        <div class="video-player">
+            <video width="800" controls poster="images/video-poster.jpg" loading="lazy">
+                <source src="videos/3 days to go - final.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <div class="content-rectangle">
+            <p>Email: hemesshram@gmail.com</p>
+            <p>Phone: +91-7010706735</p>
+            <p>LinkedIn: linkedin.com/in/hemessh-rajessh-ram-vijayalakshmi-85a83928a</p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            const sliderContainer = document.querySelector('.slider-container');
+            
+            // Set dynamic slider width
+            const slideWidth = window.innerWidth <= 768 ? 310 : 410;
+            sliderContainer.style.width = `${totalSlides * slideWidth}px`;
+
+            // Show slide function
+            function showSlide(index) {
+                if (index >= totalSlides) currentSlide = 0;
+                else if (index < 0) currentSlide = totalSlides - 1;
+                else currentSlide = index;
+                sliderContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+
+            // Auto-slide and pause on hover
+            let slideInterval = setInterval(() => showSlide(currentSlide + 1), 3000);
+            document.querySelector('.image-slider').addEventListener('mouseenter', () => clearInterval(slideInterval));
+            document.querySelector('.image-slider').addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => showSlide(currentSlide + 1), 3000);
+            });
+
+            // Expose showSlide to global scope for button clicks
+            window.showSlide = showSlide;
+        });
+    </script>
+    <footer class="bg-gray-800 text-white py-4">
+    <div class="container mx-auto px-4 text-center">
+      <p>&copy; 2025 Hemessh Ram S R. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
