@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Hemessh Ram S R, Graphic Designer and Video Editor based in Coimbatore.">
+    <meta name="keywords" content="graphic design, video editing, portfolio, Hemessh Ram">
+    <meta name="author" content="Hemessh Ram S R">
+    <title>Hemessh Ram S R - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000;
+            color: #fff;
+            scroll-behavior: smooth;
+        }
+        .navbar {
+            position: fixed;
+            top: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            z-index: 1000;
+        }
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            opacity: 0.6;
+            transition: opacity 0.3s;
+        }
+        .nav-link:hover, .nav-link:focus {
+            opacity: 1;
+        }
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 80px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+            opacity: 0.8;
+        }
+        .scroll-btn {
+            position: absolute;
+            bottom: 50px;
+            font-size: 12px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: #fff;
+            opacity: 0.8;
+        }
+        .scroll-btn:hover, .scroll-btn:focus {
+            opacity: 1;
+        }
+        .section {
+            padding: 100px 5%;
+            background: #111;
+            text-align: center;
+        }
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+        }
+        .content-rectangle {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #000;
+            color: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: left;
+        }
+        .content-rectangle:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 255, 255, 0.2);
+        }
+        .content-rectangle ul {
+            list-style: none;
+            padding-left: 20px;
+        }
+        .content-rectangle ul li {
+            margin-bottom: 15px;
+        }
+        .image-slider {
+            max-width: 1200px;
+            margin: 0 auto;
+            overflow: hidden;
+            position: relative;
+        }
+        .slider-container {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .slide {
+            min-width: 400px;
+            height: 300px;
+            background-size: cover;
+            background-position: center;
+            margin: 0 10px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: #fff;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .prev { left: 10px; }
+        .next { right: 10px; }
+        .video-player {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #000;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 50px; }
+            .hero p { font-size: 14px; }
+            .nav-menu { flex-direction: column; gap: 10px; }
+            .slide { min-width: 300px; height: 225px; }
+            .section-title { font-size: 2rem; }
+            .content-rectangle { padding: 20px; }
+            .video-player { padding: 10px; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul class="nav-menu">
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#about" class="nav-link">About</a></li>
+            <li><a href="#education" class="nav-link">Education</a></li>
+            <li><a href="#images" class="nav-link">Images</a></li>
+            <li><a href="#skills" class="nav-link">Skills</a></li>
+            <li><a href="#co-curricular" class="nav-link">Co-Curricular</a></li>
+            <li><a href="#extra-curricular" class="nav-link">Extra-Curricular</a></li>
+            <li><a href="#video" class="nav-link">Video</a></li>
+            <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>HEMESSSH RAM S R</h1>
+        <p>I'm Hemessh Ram S R, Graphic Designer & Video Editor<br>Based in Coimbatore</p>
+        <button class="scroll-btn" onclick="document.getElementById('images').scrollIntoView({ behavior: 'smooth' })">SCROLL</button>
+    </section>
+
+    <section id="about" class="section">
+        <h2 class="section-title">About Me</h2>
+        <div class="content-rectangle">
+            <p>I am a passionate Graphic Designer and Video Editor, currently in my third year at PSG College of Technology. With expertise in visual design, multimedia editing, and creative storytelling, I craft compelling graphics and videos that leave a lasting impact.</p>
+        </div>
+    </section>
+
+    <section id="education" class="section">
+        <h2 class="section-title">Education</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>PSG College of Technology, Coimbatore - B.Tech - Information Technology</li>
+                <li>Paavai Vidhyashram, Namakkal</li>
+                <li>The Vijay Millennium School, Dharmapuri</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="images" class="section">
+        <h2 class="section-title">Images</h2>
+        <div class="image-slider">
+            <div class="slider-container">
+                <div class="slide" style="background-image: url('images/coolie.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/jailer2another.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/2.0 clean.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/PSX_20241119_194818.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('images/thug-life.jpg');" loading="lazy"></div>
+            </div>
+            <button class="slider-btn prev" onclick="showSlide(currentSlide - 1)">❮</button>
+            <button class="slider-btn next" onclick="showSlide(currentSlide + 1)">❯</button>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <h2 class="section-title">Skills</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>Design Tools: Photoshop, Illustrator, Canva, After Effects, Premiere Pro, CapCut</li>
+                <li>Languages: C, C++, Python, Java, JavaScript</li>
+                <li>Web: HTML, CSS</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="co-curricular" class="section">
+        <h2 class="section-title">Co-Curricular Activities</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>Workshop on "Design Revolution: Master Modern Graphics with Canva" – Gravity Coding</li>
+                <li>Film Direction 101 Workshop – LevelUp Learning</li>
+                <li>Artificial Intelligence with Python – Coincent.ai</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="extra-curricular" class="section">
+        <h2 class="section-title">Extra-Curricular Activities</h2>
+        <div class="content-rectangle">
+            <ul>
+                <li>Core team Member of Students Union – Design team</li>
+                <li>Core team Member in Editing – Team Dramatix</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="video" class="section">
+        <h2 class="section-title">Video Showcase</h2>
+        <div class="video-player">
+            <video width="800" controls loading="lazy">
+                <source src="videos/sample.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2 class="section-title">Contact</h2>
+        <div class="content-rectangle">
+            <p>Email: hemesshram@gmail.com</p>
+            <p>Phone: +91-7010706735</p>
+            <p>LinkedIn: linkedin.com/in/hemessh-rajessh-ram-vijayalakshmi-85a83928a</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 Hemessh Ram S R. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            let currentSlide = 0;
+            const slides = document.querySelectorAll('.slide');
+            const totalSlides = slides.length;
+            const sliderContainer = document.querySelector('.slider-container');
+            const slideWidth = window.innerWidth <= 768 ? 310 : 410;
+            sliderContainer.style.width = `${totalSlides * slideWidth}px`;
+
+            function showSlide(index) {
+                if (index >= totalSlides) currentSlide = 0;
+                else if (index < 0) currentSlide = totalSlides - 1;
+                else currentSlide = index;
+                sliderContainer.style.transform = `translateX(-${currentSlide * slideWidth}px)`;
+            }
+
+            let slideInterval = setInterval(() => showSlide(currentSlide + 1), 3000);
+            document.querySelector('.image-slider').addEventListener('mouseenter', () => clearInterval(slideInterval));
+            document.querySelector('.image-slider').addEventListener('mouseleave', () => {
+                slideInterval = setInterval(() => showSlide(currentSlide + 1), 3000);
+            });
+            window.showSlide = showSlide;
+        });
+    </script>
+</body>
+</html>
