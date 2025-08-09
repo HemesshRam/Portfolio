@@ -199,11 +199,11 @@
         <h2 class="section-title">Images</h2>
         <div class="image-slider">
             <div class="slider-container">
-                <div class="slide" style="background-image: url('images/coolie.jpg');" loading="lazy"></div>
-                <div class="slide" style="background-image: url('images/jailer2another.jpg');" loading="lazy"></div>
-                <div class="slide" style="background-image: url('images/2.0 clean.jpg');" loading="lazy"></div>
-                <div class="slide" style="background-image: url('images/PSX_20241119_194818.jpg');" loading="lazy"></div>
-                <div class="slide" style="background-image: url('images/thug-life.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('/images/coolie.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('/images/jailer2another.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('/images/2.0 clean.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('/images/PSX_20241119_194818.jpg');" loading="lazy"></div>
+                <div class="slide" style="background-image: url('/images/thug-life.jpg');" loading="lazy"></div>
             </div>
             <button class="slider-btn prev" onclick="showSlide(currentSlide - 1)">❮</button>
             <button class="slider-btn next" onclick="showSlide(currentSlide + 1)">❯</button>
@@ -246,7 +246,7 @@
         <h2 class="section-title">Video Showcase</h2>
         <div class="video-player">
             <video width="800" controls loading="lazy">
-                <source src="videos/sample.mp4" type="video/mp4">
+                <source src="/videos/sample.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -257,7 +257,7 @@
         <div class="content-rectangle">
             <p>Email: hemesshram@gmail.com</p>
             <p>Phone: +91-7010706735</p>
-            <p>LinkedIn: linkedin.com/in/hemessh-rajessh-ram-vijayalakshmi-85a83928a</p>
+            <p>LinkedIn: <a href="https://linkedin.com/in/hemessh-rajessh-ram-vijayalakshmi-85a83928a" target="_blank">linkedin.com/in/hemessh-rajessh-ram-vijayalakshmi-85a83928a</a></p>
         </div>
     </section>
 
@@ -273,6 +273,16 @@
             const sliderContainer = document.querySelector('.slider-container');
             const slideWidth = window.innerWidth <= 768 ? 310 : 410;
             sliderContainer.style.width = `${totalSlides * slideWidth}px`;
+
+            // Fallback for broken images
+            slides.forEach(slide => {
+                const imgUrl = slide.style.backgroundImage.slice(5, -2); // Extract URL
+                const img = new Image();
+                img.src = imgUrl;
+                img.onerror = () => {
+                    slide.style.backgroundImage = "url('/images/fallback.jpg')"; // Ensure fallback.jpg exists in public/images
+                };
+            });
 
             function showSlide(index) {
                 if (index >= totalSlides) currentSlide = 0;
